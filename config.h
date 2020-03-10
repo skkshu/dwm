@@ -1,3 +1,4 @@
+#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -15,8 +16,8 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "SauceCodePro Nerd Font:size=16" };
+static const char dmenufont[]       = "SauceCodePro Nerd Font:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -63,7 +64,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -79,6 +80,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/vol-up.sh",  NULL };
+static const char *downvol[] = { "/home/skkshu/Suckless/scripts/vol-down.sh",  NULL };
+static const char *mutevol[] = { "/home/skkshu/Suckless/scripts/vol-toggle.sh",  NULL };
+
+static const char *prtsc[] = { "/home/skkshu/Suckless/scripts/scrot.sh", NULL };
+static const char *prtsc_focused[] = { "/home/skkshu/Suckless/scripts/scrot-focused.sh", NULL };
+
+static const char *wpcmd[]  = { "/home/skkshu/Suckless/scripts/wp-change.sh", NULL };
+static const char *sktogglecmd[]  = { "/home/skkshu/Suckless/scripts/sck-tog.sh", NULL };
+
+static const char *suspendcmd[]  = { "/home/skkshu/Suckless/scripts/suspend.sh", NULL };
+static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
 //shortkeys
 static Key keys[] = {
@@ -86,17 +99,32 @@ static Key keys[] = {
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_k,      hidewin,        {0} },
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,     XK_s,                    spawn,          {.v = suspendcmd } },
+	{ MODKEY,               XK_s,                    spawn,          {.v = sktogglecmd } },//screenkey
+	{ 0,                    XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+	{ 0,                    XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	{ 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	{ MODKEY,               XK_p,                    spawn,          {.v = prtsc } }, //printscreen
+	{ MODKEY|ShiftMask,     XK_p,                    spawn,          {.v = prtsc_focused } },
+	{ MODKEY,               XK_w,                    spawn,          {.v = wpcmd } }, //change wallpaper
+	{ MODKEY|ShiftMask,     XK_i,                    rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,     XK_n,                    rotatestack,    {.i = -1 } },
+	{ MODKEY,               XK_i,                    focusstack,     {.i = +1 } },
+	{ MODKEY,               XK_n,                    focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,     XK_h,                    incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,     XK_l,                    incnmaster,     {.i = -1 } },
+	{ MODKEY,               XK_h,                    setmfact,       {.f = -0.01} },
+	{ MODKEY,               XK_l,                    setmfact,       {.f = +0.01} },
+	{ MODKEY,               XK_k,                    hidewin,        {0} },
+	{ MODKEY|ShiftMask,     XK_k,                    restorewin,     {0} },
+	{ MODKEY,               XK_u,                    zoom,           {0} },
+	{ MODKEY,               XK_Tab,                  view,           {0} },
+	{ MODKEY,               XK_q,                    killclient,     {0} },
+
 	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
 	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
@@ -113,9 +141,10 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+
+	{ MODKEY,                       XK_u, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
