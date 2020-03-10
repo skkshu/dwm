@@ -3,3 +3,4 @@ dwm
 *.orig
 *.rej
 todo.md
+patches/
