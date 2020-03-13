@@ -39,7 +39,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tagsalt[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -100,14 +100,17 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      hidewin,        {0} },
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,     XK_s,                    spawn,          {.v = suspendcmd } },
 	{ MODKEY,               XK_s,                    spawn,          {.v = sktogglecmd } },//screenkey
+	{ 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
 	{ 0,                    XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                    XF86XK_AudioMute,        spawn,          {.v = mutevol } },
-	{ 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	{ MODKEY|ShiftMask,          XK_u,               spawn,          {.v = upvol   } },
+	{ MODKEY|ShiftMask,          XK_e,               spawn,          {.v = downvol } },
+	{ MODKEY|ShiftMask,          XK_m,               spawn,          {.v = mutevol } },
 	{ MODKEY,               XK_p,                    spawn,          {.v = prtsc } }, //printscreen
 	{ MODKEY|ShiftMask,     XK_p,                    spawn,          {.v = prtsc_focused } },
 	{ MODKEY,               XK_w,                    spawn,          {.v = wpcmd } }, //change wallpaper
