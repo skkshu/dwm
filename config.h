@@ -39,7 +39,8 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tagsalt[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+//static const char *tagsalt[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+static const char *tagsalt[] = { "1:term", "2:www", "3:term", "4:Tim", "5:", "6:mpv", "7", "8", "9:t" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -78,8 +79,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *alacmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "100x28", NULL };
+//static const char *scratchpadcmd[] = { "alacritty", "-d", "120x35", NULL };
 static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/skkshu/Suckless/scripts/vol-down.sh",  NULL };
 static const char *mutevol[] = { "/home/skkshu/Suckless/scripts/vol-toggle.sh",  NULL };
@@ -100,7 +103,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      hidewin,        {0} },
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = alacmd } },
+	{ Mod1Mask,                     XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,     XK_s,                    spawn,          {.v = suspendcmd } },
