@@ -21,8 +21,10 @@ static const char dmenufont[]       = "SauceCodePro Nerd Font:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+//static const char col_gray4[]       = "#eeeeee";
+//static const char col_cyan[]        = "#005577";
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#37474F";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -39,8 +41,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-//static const char *tagsalt[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
-static const char *tagsalt[] = { "1:term", "2:www", "3:term", "4:Tim", "5:", "6:mpv", "7", "8", "9:t" };
+static const char *tagsalt[] = { "1:term", "2:www", "3:term", "4:Tim", "5", "6:mpv", "7", "8", "9:t" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -81,7 +82,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *alacmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "100x28", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x36", NULL };
 //static const char *scratchpadcmd[] = { "alacritty", "-d", "120x35", NULL };
 static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/skkshu/Suckless/scripts/vol-down.sh",  NULL };
