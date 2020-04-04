@@ -101,6 +101,7 @@ static const char *browsercmd[]  = { "chromium", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_apostrophe,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_k,      hidewin,        {0} },
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
