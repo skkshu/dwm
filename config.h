@@ -106,7 +106,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
-	{ Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
+	// { Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
