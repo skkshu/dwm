@@ -40,8 +40,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-
+// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\uf04b", "\ue62e", "\uf251", "\ue727", "\uf537", "\uf684" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -81,6 +81,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *roficmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *alacmd[]  = { "alacritty", NULL };
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x36", NULL };
 //static const char *scratchpadcmd[] = { "alacritty", "-d", "120x35", NULL };
@@ -115,23 +116,25 @@ static Key keys[] = {
 	{ 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
 	{ 0,                    XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                    XF86XK_AudioMute,        spawn,          {.v = mutevol } },
-	{ MODKEY|ShiftMask,          XK_u,               spawn,          {.v = upvol   } },
-	{ MODKEY|ShiftMask,          XK_e,               spawn,          {.v = downvol } },
-	{ MODKEY|ShiftMask,          XK_m,               spawn,          {.v = mutevol } },
+	{ 0,                    XK_Print,                spawn,          {.v = screenshotcmd } },
+	{ MODKEY|ShiftMask,    XK_e,                    rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,    XK_u,                    rotatestack,    {.i = -1 } },
+	{ MODKEY,              XK_e,                    focusstack,     {.i = +1 } },
+	{ MODKEY,              XK_u,                    focusstack,     {.i = -1 } },
+	{ MODKEY,              XK_n,                    viewtoleft,     {0} },
+	{ MODKEY,              XK_i,                    viewtoright,    {0} },
+	{ MODKEY|ShiftMask,    XK_n,                    tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,    XK_i,                    tagtoright,     {0} },
 	{ MODKEY,               XK_p,                    spawn,          {.v = prtsc } }, //printscreen
 	{ MODKEY|ShiftMask,     XK_p,                    spawn,          {.v = prtsc_focused } },
 	{ MODKEY,               XK_w,                    spawn,          {.v = wpcmd } }, //change wallpaper
-	{ MODKEY|ShiftMask,     XK_i,                    rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,     XK_n,                    rotatestack,    {.i = -1 } },
-	{ MODKEY,               XK_i,                    focusstack,     {.i = +1 } },
-	{ MODKEY,               XK_n,                    focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,     XK_h,                    incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,     XK_l,                    incnmaster,     {.i = -1 } },
 	{ MODKEY,               XK_h,                    setmfact,       {.f = -0.01} },
 	{ MODKEY,               XK_l,                    setmfact,       {.f = +0.01} },
 	{ MODKEY,               XK_k,                    hidewin,        {0} },
 	{ MODKEY|ShiftMask,     XK_k,                    restorewin,     {0} },
-	{ MODKEY,               XK_u,                    zoom,           {0} },
+	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
 	{ MODKEY,               XK_Tab,                  view,           {0} },
 	{ MODKEY,               XK_q,                    killclient,     {0} },
 
