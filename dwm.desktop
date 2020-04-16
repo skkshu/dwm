@@ -1,0 +1,8 @@
+# /usr/share/xsessions
+[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Icon=dwm
+Comment=Dynamic Window Manager
+Exec=/usr/local/bin/dwm
+Type=Application
