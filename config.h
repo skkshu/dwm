@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	// { "Chromium", NULL,       NULL,       2,            0,           -1 },
 };
 
 /* layout(s) */
@@ -83,7 +84,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *alacmd[]  = { "alacritty", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x36", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "124x38", NULL };
 //static const char *scratchpadcmd[] = { "alacritty", "-d", "120x35", NULL };
 static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/skkshu/Suckless/scripts/vol-down.sh",  NULL };
@@ -107,7 +108,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
-	// { Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
+	{ Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
@@ -138,22 +140,22 @@ static Key keys[] = {
 	{ MODKEY,               XK_Tab,                  view,           {0} },
 	{ MODKEY,               XK_q,                    killclient,     {0} },
 
-	{ MODKEY|Mod1Mask,              XK_h,      incrgaps,       {.i = +1 } },
-	{ MODKEY|Mod1Mask,              XK_l,      incrgaps,       {.i = -1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
-	{ MODKEY|Mod1Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
-	{ MODKEY|Mod1Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
-	{ MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
-	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
-	{ MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } },
-	{ MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_h,      incrgaps,       {.i = +1 } },
+	// { MODKEY|Mod1Mask,              XK_l,      incrgaps,       {.i = -1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
+	// { MODKEY|Mod1Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
+	// { MODKEY|Mod1Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
+	// { MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
+	// { MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
+	// { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
+	// { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
+	// { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
+	// { MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },
+	// { MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } },
+	// { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },
+	// { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
+	// { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             XK_q,      killclient,     {0} },
