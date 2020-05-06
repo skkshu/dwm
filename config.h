@@ -79,24 +79,23 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *roficmd[] = { "rofi", "-show", "run", NULL };
+// static const char *roficmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *alacmd[]  = { "alacritty", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "124x38", NULL };
-//static const char *scratchpadcmd[] = { "alacritty", "-d", "120x35", NULL };
-static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/vol-up.sh",  NULL };
-static const char *downvol[] = { "/home/skkshu/Suckless/scripts/vol-down.sh",  NULL };
-static const char *mutevol[] = { "/home/skkshu/Suckless/scripts/vol-toggle.sh",  NULL };
+static const char *upvol[]   = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/volume/vol-up.sh",  NULL };
+static const char *downvol[] = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/volume/vol-down.sh",  NULL };
+static const char *mutevol[] = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/volume/vol-toggle.sh",  NULL };
 
-static const char *prtsc[] = { "/home/skkshu/Suckless/scripts/scrot.sh", NULL };
-static const char *prtsc_focused[] = { "/home/skkshu/Suckless/scripts/scrot-focused.sh", NULL };
+static const char *prtsc[] = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/screenshot/scrot-fullscreen.sh", NULL };
+static const char *prtsc_focused[] = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/screenshot/scrot-focused.sh", NULL };
 
-static const char *wpcmd[]  = { "/home/skkshu/Suckless/scripts/wp-change.sh", NULL };
-static const char *sktogglecmd[]  = { "/home/skkshu/Suckless/scripts/sck-tog.sh", NULL };
+static const char *wpcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/wallpaper/wp-change.sh", NULL };
+static const char *sktogglecmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/sck-tog.sh", NULL };
 
-static const char *suspendcmd[]  = { "/home/skkshu/Suckless/scripts/suspend.sh", NULL };
+static const char *suspendcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/suspend.sh", NULL };
 static const char *browsercmd[]  = { "chromium", NULL };
 
 //shortkeys
@@ -107,7 +106,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      hidewin,        {0} },
 	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
+	// { MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
 	{ Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -158,7 +157,6 @@ static Key keys[] = {
 	// { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
