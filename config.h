@@ -41,7 +41,7 @@ static const unsigned int alphas[][3]      = {
 
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\uf04b", "\ue62e", "\uf251", "\ue727", "\uf537", "\uf684" };
+static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\uf04b", "\ue62e", "\uf251", "\uf408", "\uf537", "\uf684" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -138,24 +138,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
 	{ MODKEY,               XK_Tab,                  view,           {0} },
 	{ MODKEY,               XK_q,                    killclient,     {0} },
-
-	// { MODKEY|Mod1Mask,              XK_h,      incrgaps,       {.i = +1 } },
-	// { MODKEY|Mod1Mask,              XK_l,      incrgaps,       {.i = -1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
-	// { MODKEY|Mod1Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
-	// { MODKEY|Mod1Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
-	// { MODKEY|Mod1Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
-	// { MODKEY|Mod1Mask,              XK_0,      togglegaps,     {0} },
-	// { MODKEY|Mod1Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-	// { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
-	// { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
-	// { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
-	// { MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },
-	// { MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } },
-	// { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },
-	// { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
-	// { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
-
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
