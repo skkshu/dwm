@@ -96,45 +96,43 @@ static const char *wpcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-fu
 static const char *sktogglecmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/sck-tog.sh", NULL };
 
 static const char *suspendcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/suspend.sh", NULL };
-static const char *browsercmd[]  = { "chromium", NULL };
+static const char *browsercmd[]  = { "firefox", NULL };
 
 //shortkeys
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_apostrophe,  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY,                       XK_k,      hidewin,        {0} },
-	{ MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
+	{ MODKEY,                       XK_n,      hidewin,        {0} },
+	{ MODKEY|ShiftMask,             XK_n,      restorewin,     {0} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	// { MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
 	{ Mod1Mask,                     XK_Return, spawn,          {.v = alacmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = alacmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,               XK_c,                    spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,     XK_s,                    spawn,          {.v = suspendcmd } },
 	{ MODKEY,               XK_s,                    spawn,          {.v = sktogglecmd } },//screenkey
-	{ 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
-	{ 0,                    XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
-	{ 0,                    XF86XK_AudioMute,        spawn,          {.v = mutevol } },
+	// { 0,                    XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
+	// { 0,                    XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
+	// { 0,                    XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                    XK_Print,                spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,    XK_e,                    rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_u,                    rotatestack,    {.i = -1 } },
-	{ MODKEY,              XK_e,                    focusstack,     {.i = +1 } },
-	{ MODKEY,              XK_u,                    focusstack,     {.i = -1 } },
-	{ MODKEY,              XK_n,                    viewtoleft,     {0} },
-	{ MODKEY,              XK_i,                    viewtoright,    {0} },
-	{ MODKEY|ShiftMask,    XK_n,                    tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,    XK_i,                    tagtoright,     {0} },
+	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
+	{ MODKEY,              XK_k,                    focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,    XK_h,                    viewtoleft,     {0} },
+	{ MODKEY|ShiftMask,    XK_l,                    viewtoright,    {0} },
+	// { MODKEY|ShiftMask,    XK_h,                    tagtoleft,      {0} },
+	// { MODKEY|ShiftMask,    XK_l,                    tagtoright,     {0} },
 	{ MODKEY,               XK_p,                    spawn,          {.v = prtsc } }, //printscreen
 	{ MODKEY|ShiftMask,     XK_p,                    spawn,          {.v = prtsc_focused } },
 	{ MODKEY,               XK_w,                    spawn,          {.v = wpcmd } }, //change wallpaper
-	{ MODKEY|ShiftMask,     XK_h,                    incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,     XK_l,                    incnmaster,     {.i = -1 } },
-	{ MODKEY,               XK_h,                    setmfact,       {.f = -0.01} },
-	{ MODKEY,               XK_l,                    setmfact,       {.f = +0.01} },
-	{ MODKEY,               XK_k,                    hidewin,        {0} },
-	{ MODKEY|ShiftMask,     XK_k,                    restorewin,     {0} },
+	// { MODKEY|ShiftMask,     XK_h,                    incnmaster,     {.i = +1 } },
+	// { MODKEY|ShiftMask,     XK_l,                    incnmaster,     {.i = -1 } },
+	// { MODKEY,               XK_h,                    setmfact,       {.f = -0.01} },
+	// { MODKEY,               XK_l,                    setmfact,       {.f = +0.01} },
 	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
 	{ MODKEY,               XK_Tab,                  view,           {0} },
 	{ MODKEY,               XK_q,                    killclient,     {0} },
