@@ -96,7 +96,7 @@ static const char *wpcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-fu
 static const char *sktogglecmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/sck-tog.sh", NULL };
 
 static const char *suspendcmd[]  = { "/home/skkshu/Suckless/scripts/dwm-additional-functionality/suspend.sh", NULL };
-static const char *browsercmd[]  = { "firefox", NULL };
+static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
 //shortkeys
 static Key keys[] = {
